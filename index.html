@@ -117,7 +117,259 @@
             </section>
         </div>
 
-        <!-- VIEW 3: SPECS (HIDDEN INITIALLY) -->
+        <!-- VIEW 3: DRIFT GALLERY (HIDDEN INITIALLY) -->
+        <div id="drift-view" class="view-section hidden-view">
+            <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <button class="btn-secondary small-btn" onclick="switchView('menu')"><i
+                        class="fa-solid fa-arrow-left"></i> VOLTAR AO MENU</button>
+                <button class="btn-secondary small-btn" onclick="switchView('home')">
+                    <i class="fa-solid fa-home"></i> COCKPIT</button>
+            </div>
+
+            <section class="drift-content">
+                <h1 class="glitch-title neon-white" data-text="DRIFT ZONE">DRIFT ZONE</h1>
+                <h2 class="sub-title">DOMÍNIO ABSOLUTO NAS PISTAS</h2>
+                <p class="description" style="margin-bottom: 3rem;">
+                    Assista aos GTRs em ação. Performance brutal, controle total, adrenalina pura.
+                </p>
+
+                <!-- Video Gallery Grid -->
+                <div class="drift-gallery">
+                    <!-- Video Card 1 -->
+                    <div class="drift-card-video">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="GTR R35 Drift"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3><i class="fa-solid fa-fire"></i> R35 NISMO Drift Attack</h3>
+                            <p>VeilSide R35 dominando as curvas com 600cv de pura potência</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="drift-card-video">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="GTR R34 Drift"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3><i class="fa-solid fa-fire"></i> R34 Skyline Bayside Blue</h3>
+                            <p>O lendário RB26 rugindo nas pistas de drift do Japão</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="drift-card-video">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="GTR R33 Drift"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3><i class="fa-solid fa-fire"></i> R33 400R Track Monster</h3>
+                            <p>A raridade de 44 unidades mostrando seu poder em Nürburgring</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="drift-card-video">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="GTR Compilation"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3><i class="fa-solid fa-fire"></i> GTR Evolution Compilation</h3>
+                            <p>R32, R33, R34, R35 - A evolução do Godzilla em drift</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Gallery -->
+                <h2 class="gallery-section-title">
+                    <i class="fa-solid fa-images"></i> GALERIA DE IMAGENS
+                </h2>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800" alt="GTR Drift 1">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800" alt="GTR Drift 2">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800" alt="GTR Drift 3">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800" alt="GTR Drift 4">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1542362567-b07e54a88620?w=800" alt="GTR Drift 5">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800" alt="GTR Drift 6">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW 4: CUSTOMIZAÇÃO (HIDDEN INITIALLY) -->
+        <div id="custom-view" class="view-section hidden-view">
+            <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <button class="btn-secondary small-btn" onclick="switchView('menu')"><i
+                        class="fa-solid fa-arrow-left"></i> VOLTAR AO MENU</button>
+                <button class="btn-secondary small-btn" onclick="switchView('home')">
+                    <i class="fa-solid fa-home"></i> COCKPIT</button>
+            </div>
+
+            <section class="custom-content">
+                <h1 class="glitch-title neon-white" data-text="CUSTOMIZAÇÃO">CUSTOMIZAÇÃO</h1>
+                <h2 class="sub-title">CRIE SUA MÁQUINA PERFEITA</h2>
+                <p class="description" style="margin-bottom: 3rem;">
+                    Personalize cada detalhe do seu GTR. Body kits, cores, rodas e muito mais.
+                </p>
+
+                <div class="custom-grid">
+                    <!-- Body Kit Selection -->
+                    <div class="custom-section">
+                        <h3><i class="fa-solid fa-car-side"></i> BODY KITS</h3>
+                        <div class="custom-options">
+                            <div class="custom-option active">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                <span>VeilSide</span>
+                            </div>
+                            <div class="custom-option">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                <span>Liberty Walk</span>
+                            </div>
+                            <div class="custom-option">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                <span>Rocket Bunny</span>
+                            </div>
+                            <div class="custom-option">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                <span>Varis Kamikaze</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="custom-section">
+                        <h3><i class="fa-solid fa-palette"></i> CORES</h3>
+                        <div class="custom-options color-grid">
+                            <div class="color-option active" style="background: #000;" title="Midnight Black"></div>
+                            <div class="color-option" style="background: #fff;" title="Pearl White"></div>
+                            <div class="color-option" style="background: #c0c0c0;" title="Gun Metal"></div>
+                            <div class="color-option" style="background: #ff0000;" title="Racing Red"></div>
+                            <div class="color-option" style="background: #00bfff;" title="Bayside Blue"></div>
+                            <div class="color-option" style="background: #c71585;" title="Midnight Purple"></div>
+                            <div class="color-option" style="background: #ffd700;" title="Champion Gold"></div>
+                            <div class="color-option" style="background: #32cd32;" title="Neon Green"></div>
+                        </div>
+                    </div>
+
+                    <!-- Wheels Selection -->
+                    <div class="custom-section">
+                        <h3><i class="fa-solid fa-circle-notch"></i> RODAS</h3>
+                        <div class="custom-options">
+                            <div class="custom-option active">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                </div>
+                                <span>Rays TE37</span>
+                            </div>
+                            <div class="custom-option">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                </div>
+                                <span>Work Meister</span>
+                            </div>
+                            <div class="custom-option">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                </div>
+                                <span>Advan GT</span>
+                            </div>
+                            <div class="custom-option">
+                                <div class="option-preview">
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                </div>
+                                <span>BBS LM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Upgrades -->
+                    <div class="custom-section">
+                        <h3><i class="fa-solid fa-gauge-high"></i> PERFORMANCE</h3>
+                        <div class="performance-sliders">
+                            <div class="slider-group">
+                                <label>Potência do Motor</label>
+                                <input type="range" min="600" max="1500" value="600" class="perf-slider">
+                                <span class="slider-value">600 cv</span>
+                            </div>
+                            <div class="slider-group">
+                                <label>Altura da Suspensão</label>
+                                <input type="range" min="-50" max="0" value="-20" class="perf-slider">
+                                <span class="slider-value">-20mm</span>
+                            </div>
+                            <div class="slider-group">
+                                <label>Tamanho das Rodas</label>
+                                <input type="range" min="18" max="22" value="19" class="perf-slider">
+                                <span class="slider-value">19"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-actions">
+                    <button class="btn-primary" style="margin-top: 2rem;">
+                        <i class="fa-solid fa-save"></i> SALVAR CONFIGURAÇÃO
+                    </button>
+                    <button class="btn-secondary" style="margin-top: 2rem;">
+                        <i class="fa-solid fa-rotate-left"></i> RESETAR
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW 5: SPECS (HIDDEN INITIALLY) -->
         <div id="specs-view" class="view-section hidden-view specs-layout">
             <!-- Header Specífico (ou botão voltar) -->
             <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">

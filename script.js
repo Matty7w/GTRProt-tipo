@@ -112,6 +112,8 @@ document.getElementById('play-pause-btn').addEventListener('click', function () 
 function switchView(viewName) {
     const homeView = document.getElementById('home-view');
     const menuView = document.getElementById('menu-view');
+    const driftView = document.getElementById('drift-view');
+    const customView = document.getElementById('custom-view');
     const specsView = document.getElementById('specs-view');
     const versionsView = document.getElementById('versions-view');
     const r34View = document.getElementById('r34-view');
@@ -126,7 +128,7 @@ function switchView(viewName) {
     const mainHeader = document.getElementById('main-header');
 
     // Hide all first
-    [homeView, menuView, specsView, versionsView, r34View, r33View].forEach(view => {
+    [homeView, menuView, driftView, customView, specsView, versionsView, r34View, r33View].forEach(view => {
         if (view) {
             view.classList.remove('active-view');
             view.classList.add('hidden-view');
@@ -186,6 +188,12 @@ function switchView(viewName) {
         if (viewName === 'menu') {
             menuView.classList.remove('hidden-view');
             menuView.classList.add('active-view');
+        } else if (viewName === 'drift') {
+            driftView.classList.remove('hidden-view');
+            driftView.classList.add('active-view');
+        } else if (viewName === 'custom') {
+            customView.classList.remove('hidden-view');
+            customView.classList.add('active-view');
         } else if (viewName === 'specs') {
             specsView.classList.remove('hidden-view');
             specsView.classList.add('active-view');
