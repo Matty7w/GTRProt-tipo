@@ -1,0 +1,651 @@
+/* Global Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+:root {
+    --bg-image: url('https://r4.wallpaperflare.com/wallpaper/1022/53/128/ultra-wide-car-nissan-skyline-gt-r-wallpaper-8f61950fe7a12fb68eb61849ff9cb606.jpg');
+    --bg-filter: grayscale(100%) contrast(1.2) brightness(0.6);
+    --accent-color: #fff;
+    --accent-glow: rgba(255, 255, 255, 0.5);
+}
+
+/* Background Image & Overlay */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    filter: var(--bg-filter);
+    transition: all 0.8s ease-in-out;
+}
+
+/* Scanlines Effect for that futuristic CRT/HUD feel */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.1));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.15;
+    /* Reduced from 0.3 */
+}
+
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: 9;
+}
+
+/* Typography & Content */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Remove strict justify-content: space-between to allow flow */
+    align-items: center;
+    padding: 2rem;
+    z-index: 5;
+    position: relative;
+    padding-bottom: 120px;
+    /* Space for fixed player */
+    /* Above background */
+}
+
+/* View Management (SPA) */
+.view-section {
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.hidden-view {
+    display: none !important;
+    opacity: 0;
+}
+
+.active-view {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-forward;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.top-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid var(--accent-glow);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--accent-glow);
+    transition: all 0.5s ease;
+}
+
+.model {
+    font-weight: 900;
+}
+
+.spec {
+    color: var(--accent-color);
+    font-weight: 300;
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* R34 Bayside Theme */
+.top-nav.r34-theme {
+    border-bottom-color: rgba(0, 191, 255, 0.4);
+    background: rgba(0, 10, 30, 0.7);
+}
+
+.top-nav.r34-theme .brand {
+    color: #00bfff;
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+}
+
+.top-nav.r34-theme .spec {
+    color: #00bfff;
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+}
+
+/* R35 Monstrous Theme */
+.top-nav.r35-theme {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.top-nav.r35-theme .brand {
+    color: #fff;
+}
+
+.top-nav.r35-theme .spec {
+    color: #aaa;
+}
+
+.status-indicators {
+    display: flex;
+    gap: 1.5rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.stat-item i {
+    margin-right: 0.5rem;
+    color: #fff;
+    /* White icons */
+}
+
+/* Hero Section */
+.hero-content {
+    text-align: center;
+    margin-top: 15vh;
+    /* Push down a bit */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.glitch-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 900;
+    letter-spacing: 10px;
+    position: relative;
+    color: white;
+    text-shadow: 4px 4px 0px #333;
+    /* Dark shadow */
+    animation: glitch-anim 2s infinite;
+}
+
+.glitch-title.neon-white {
+    text-shadow:
+        0 0 10px var(--accent-color),
+        0 0 20px var(--accent-color),
+        0 0 40px var(--accent-glow),
+        0 0 60px var(--accent-glow);
+    animation: glitch-anim 2s infinite, neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.5);
+        opacity: 0.9;
+    }
+
+    100% {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 40px rgba(255, 255, 255, 0.9),
+            0 0 60px rgba(255, 255, 255, 0.6),
+            0 0 80px rgba(255, 255, 255, 0.4);
+        opacity: 1;
+    }
+}
+
+@keyframes glitch-anim {
+    0% {
+        text-shadow: 4px 4px 0px #333;
+        transform: translate(0);
+    }
+
+    20% {
+        text-shadow: -4px -4px 0px #333;
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        text-shadow: 4px -4px 0px #555;
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        text-shadow: -4px 4px 0px #333;
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        text-shadow: 2px 2px 0px #555;
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        text-shadow: 4px 4px 0px #333;
+        transform: translate(0);
+    }
+}
+
+.sub-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.description {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+    color: #ccc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-left: 3px solid #fff;
+}
+
+/* Buttons */
+.cta-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 1rem 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+    /* Tech shape */
+}
+
+.btn-primary {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ====================================
+   SPOTIFY-STYLE MUSIC PLAYER BAR
+   ==================================== */
+.music-player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    background: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+/* Left Section - Track Info */
+.player-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+    flex: 1;
+}
+
+.track-artwork {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1.2rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.track-artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.track-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-artist {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+    padding: 8px;
+}
+
+.like-btn:hover {
+    color: #fff;
+}
+
+.like-btn.active {
+    color: #c41e3a;
+    /* Red when liked */
+}
+
+/* Center Section - Controls & Progress */
+.player-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 2;
+    max-width: 600px;
+}
+
+.center-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ctrl-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 6px;
+    transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.ctrl-btn.play-btn {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.ctrl-btn.play-btn:hover {
+    transform: scale(1.08);
+    background: #eee;
+}
+
+/* Progress Row */
+.progress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.time-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.7rem;
+    color: #888;
+    min-width: 35px;
+    text-align: center;
+}
+
+.progress-track {
+    flex: 1;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress-track:hover {
+    height: 6px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.progress-track:hover .progress-bar {
+    background: #c41e3a;
+    /* Red on hover */
+}
+
+/* Right Section - Volume */
+.player-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.volume-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-row i {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.vol-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.vol-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.volume-row:hover .vol-slider::-webkit-slider-thumb {
+    opacity: 1;
+}
+
+.vol-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Volume slider fill effect with red accent */
+.vol-slider {
+    background: linear-gradient(to right, #c41e3a 0%, #c41e3a var(--volume-level, 50%), #333 var(--volume-level, 50%), #333 100%);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .player-left {
+        min-width: 150px;
+    }
+
+    .player-right {
+        display: none;
+    }
+
+    .track-title {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 600px) {
+    .music-player-bar {
+        height: 64px;
+        padding: 0 1rem;
+    }
+
+    .track-artwork {
+        width: 40px;
+        height: 40px;
+    }
+
+    .center-controls {
+        gap: 10px;
+    }
+
+    .ctrl-btn {
+        font-size: 0.8rem;
+    }
+
+    .ctrl-btn.play-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .progress-row {
+        display: none;
+    }
+}
+
+/* System Ignited State */
+body.ignited .background-container {
+    filter: grayscale(100%) contrast(1.3) brightness(0.8);
+    animation: flash 0.5s;
+}
+
+body.ignited .scanlines {
+    opacity: 0.1;
+}
+
+@keyframes flash {
+    0% {
+        filter: brightness(10);
+    }
+
+    100% {
+        filter: grayscale(100%) contrast(1.3) brightness(0.8);
+    }
+}
