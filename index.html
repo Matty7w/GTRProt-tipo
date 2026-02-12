@@ -266,14 +266,15 @@
 
                 <div class="kits-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
                     <!-- R33 -->
+                    <!-- R33 -->
                     <div class="kit-card" style="padding: 3rem 2rem;">
                         <span
                             style="font-family: 'Orbitron', sans-serif; color: rgba(255,255,255,0.1); font-size: 5rem; position: absolute; top: -10px; right: 10px; font-weight: 900;">R33</span>
                         <h4>SKYLINE GTR R33</h4>
                         <p>O mestre da estabilidade. O primeiro carro de produção a baixar dos 8 minutos em Nürburgring.
                         </p>
-                        <button class="btn-secondary small-btn" style="margin-top: 2rem; width: 100%;">EXPLORAR (EM
-                            BREVE)</button>
+                        <button class="btn-secondary small-btn" style="margin-top: 2rem; width: 100%;"
+                            onclick="switchView('r33')">EXPLORAR AGORA</button>
                     </div>
 
                     <!-- R34 -->
@@ -566,6 +567,164 @@
 
                 <div class="footer-note">
                     <p>SKYLINE R34 GT-R: O último samurai. O ícone eterno da cultura JDM.</p>
+                </div>
+            </div>
+        </div>
+        <!-- VIEW 5: R33 SPECS (HIDDEN INITIALLY) -->
+        <div id="r33-view" class="view-section hidden-view specs-layout">
+            <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <button class="btn-secondary small-btn" onclick="switchView('home')"><i
+                        class="fa-solid fa-arrow-left"></i> VOLTAR AO COCKPIT</button>
+                <button class="btn-secondary small-btn" onclick="switchView('versions')">
+                    <i class="fa-solid fa-layer-group"></i> OUTRAS VERSÕES</button>
+            </div>
+
+            <div class="specs-content-wrapper r33-page">
+                <h1 class="specs-title">ARQUIVO CLASSIFICADO <br><span class="highlight">SKYLINE R33 GT-R</span></h1>
+                <p class="r33-subtitle">BCNR33 | 1995-1998 | O Pioneiro de Nürburgring</p>
+
+                <!-- Hero Stats Bar -->
+                <div class="r33-hero-stats"
+                    style="display: flex; justify-content: space-around; background: rgba(0,0,0,0.6); padding: 2rem; border-radius: 10px; margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="hero-stat" style="text-align: center;">
+                        <span class="stat-value"
+                            style="display: block; font-family: 'Orbitron'; font-size: 2.5rem; color: #fff; text-shadow: 0 0 10px #c71585;">280</span>
+                        <span class="stat-label" style="font-size: 0.9rem; color: #aaa;">cv (Oficial)</span>
+                    </div>
+                    <div class="hero-stat" style="text-align: center;">
+                        <span class="stat-value"
+                            style="display: block; font-family: 'Orbitron'; font-size: 2.5rem; color: #fff; text-shadow: 0 0 10px #c71585;">7:59</span>
+                        <span class="stat-label" style="font-size: 0.9rem; color: #aaa;">Nürburgring</span>
+                    </div>
+                    <div class="hero-stat" style="text-align: center;">
+                        <span class="stat-value"
+                            style="display: block; font-family: 'Orbitron'; font-size: 2.5rem; color: #fff; text-shadow: 0 0 10px #c71585;">5.0s</span>
+                        <span class="stat-label" style="font-size: 0.9rem; color: #aaa;">0-100 km/h</span>
+                    </div>
+                    <div class="hero-stat" style="text-align: center;">
+                        <span class="stat-value"
+                            style="display: block; font-family: 'Orbitron'; font-size: 2.5rem; color: #fff; text-shadow: 0 0 10px #c71585;">400R</span>
+                        <span class="stat-label" style="font-size: 0.9rem; color: #aaa;">Versão Lendária</span>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <section class="r33-section" style="margin-bottom: 4rem;">
+                    <h3><i class="fa-solid fa-scroll"></i> O GIGANTE INCOMPREENDIDO</h3>
+                    <div class="history-content"
+                        style="background: rgba(0,0,0,0.4); padding: 2rem; border-left: 3px solid #c71585;">
+                        <p style="margin-bottom: 1rem;">O <strong>Nissan Skyline GT-R R33</strong> (chassi BCNR33)
+                            chegou em 1995 com uma missão difícil: suceder o lendário R32. Frequentemente chamado de "o
+                            patinho feio" da trilogia, o R33 é tecnicamente superior ao seu antecessor em estabilidade e
+                            aerodinâmica.</p>
+                        <p style="margin-bottom: 1rem;">Foi o primeiro carro de produção a quebrar a barreira dos 8
+                            minutos no circuito de Nürburgring Nordschleife, provando que seu chassi mais longo e largo
+                            trazia benefícios reais em pistas de alta velocidade.</p>
+                        <p>Sua tecnologia ATTESA E-TS Pro e Super HICAS foram refinadas, tornando-o uma máquina de
+                            aderência inigualável para sua época.</p>
+                    </div>
+                </section>
+
+                <!-- Technical Specs Grid -->
+                <section class="r33-section" style="margin-bottom: 4rem;">
+                    <h3><i class="fa-solid fa-wrench"></i> ESPECIFICAÇÕES TÉCNICAS</h3>
+                    <div class="r33-specs-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <div class="r33-spec-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s; border-radius: 8px;">
+                            <div class="spec-icon" style="color: #c71585; font-size: 1.5rem; margin-bottom: 1rem;"><i
+                                    class="fa-solid fa-engine"></i></div>
+                            <h4
+                                style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">
+                                MOTOR RB26DETT</h4>
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Tipo:</span> <span>I6 Twin-Turbo 2.6L</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Potência:</span> <span>280 cv (Oficial)</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Torque:</span> <span>368 Nm</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Redline:</span> <span>8.000 rpm</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="r33-spec-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s; border-radius: 8px;">
+                            <div class="spec-icon" style="color: #c71585; font-size: 1.5rem; margin-bottom: 1rem;"><i
+                                    class="fa-solid fa-gauge-high"></i></div>
+                            <h4
+                                style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">
+                                PERFORMANCE</h4>
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">0-100 km/h:</span> <span>5.0 s</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Vel. Máx:</span> <span>250 km/h (Limitada)</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Peso:</span> <span>1.530 kg</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Cx. de Ar:</span> <span>0.35 Cd (Aero)</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="r33-spec-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s; border-radius: 8px;">
+                            <div class="spec-icon" style="color: #c71585; font-size: 1.5rem; margin-bottom: 1rem;"><i
+                                    class="fa-solid fa-ruler-combined"></i></div>
+                            <h4
+                                style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">
+                                DIMENSÕES</h4>
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Comprimento:</span> <span>4.675 mm</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Largura:</span> <span>1.780 mm</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Altura:</span> <span>1.360 mm</span></li>
+                                <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span
+                                        style="color: #aaa;">Entre-eixos:</span> <span>2.720 mm</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Versions Section -->
+                <section class="r33-section">
+                    <h3><i class="fa-solid fa-layer-group"></i> VARIANTES LENDÁRIAS</h3>
+                    <div class="versions-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="version-card"
+                            style="background: rgba(0,0,0,0.5); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                            <span class="version-badge"
+                                style="background: #c71585; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px;">ÍCONE</span>
+                            <h4 style="margin: 0.5rem 0; color: #fff;">NISMO 400R</h4>
+                            <p style="font-size: 0.9rem; color: #ccc;">Apenas 44 unidades. Motor RB-X GT2 de 2.8L com
+                                400cv. O "Santo Graal" dos R33.</p>
+                        </div>
+                        <div class="version-card"
+                            style="background: rgba(0,0,0,0.5); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                            <span class="version-badge"
+                                style="background: #444; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px;">ED.
+                                LIMITADA</span>
+                            <h4 style="margin: 0.5rem 0; color: #fff;">GT-R LM Limited</h4>
+                            <p style="font-size: 0.9rem; color: #ccc;">Homenagem a Le Mans. Pintura Champion Blue
+                                exclusiva e aerodinâmica revisada.</p>
+                        </div>
+                        <div class="version-card"
+                            style="background: rgba(0,0,0,0.5); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                            <span class="version-badge"
+                                style="background: #444; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px;">SEDAN</span>
+                            <h4 style="margin: 0.5rem 0; color: #fff;">Autech GT-R 4-Door</h4>
+                            <p style="font-size: 0.9rem; color: #ccc;">Um GT-R de 4 portas criado pela Autech para o 40º
+                                aniversário do Skyline.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="footer-note"
+                    style="margin-top: 3rem; text-align: center; color: #888; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                    <p>SKYLINE R33 GT-R: A evolução silenciosa que definiu o futuro.</p>
                 </div>
             </div>
         </div>

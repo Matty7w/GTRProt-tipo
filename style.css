@@ -353,8 +353,12 @@ body {
     left: 0;
     width: 100%;
     height: 72px;
-    background: #0a0a0a;
-    border-top: 1px solid #1a1a1a;
+    background: rgba(0, 0, 0, 0.2);
+    /* Transparent */
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.1);
+    /* White Neon Glow */
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -374,15 +378,17 @@ body {
 .track-artwork {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #666;
+    color: #fff;
     font-size: 1.2rem;
     overflow: hidden;
     flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .track-artwork img {
@@ -402,6 +408,7 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
     max-width: 180px;
     white-space: nowrap;
     overflow: hidden;
@@ -411,26 +418,28 @@ body {
 .track-artist {
     font-family: 'Rajdhani', sans-serif;
     font-size: 0.75rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .like-btn {
     background: none;
     border: none;
-    color: #666;
+    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     font-size: 1rem;
-    transition: color 0.2s;
+    transition: all 0.2s;
     padding: 8px;
 }
 
 .like-btn:hover {
     color: #fff;
+    text-shadow: 0 0 10px #fff;
 }
 
 .like-btn.active {
-    color: #c41e3a;
-    /* Red when liked */
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
 }
 
 /* Center Section - Controls & Progress */
@@ -452,7 +461,7 @@ body {
 .ctrl-btn {
     background: none;
     border: none;
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     font-size: 0.9rem;
     padding: 6px;
@@ -462,6 +471,7 @@ body {
 .ctrl-btn:hover {
     color: #fff;
     transform: scale(1.1);
+    text-shadow: 0 0 8px #fff;
 }
 
 .ctrl-btn.play-btn {
@@ -474,11 +484,13 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 0.85rem;
+    box-shadow: 0 0 10px #fff;
 }
 
 .ctrl-btn.play-btn:hover {
     transform: scale(1.08);
-    background: #eee;
+    background: #fff;
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff;
 }
 
 /* Progress Row */
@@ -500,7 +512,7 @@ body {
 .progress-track {
     flex: 1;
     height: 4px;
-    background: #333;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 2px;
     position: relative;
     cursor: pointer;
@@ -517,11 +529,12 @@ body {
     border-radius: 2px;
     width: 0%;
     transition: width 0.1s linear;
+    box-shadow: 0 0 10px #fff;
 }
 
 .progress-track:hover .progress-bar {
-    background: #c41e3a;
-    /* Red on hover */
+    background: #fff;
+    box-shadow: 0 0 15px #fff;
 }
 
 /* Right Section - Volume */
@@ -541,8 +554,9 @@ body {
 }
 
 .volume-row i {
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .vol-slider {
@@ -550,7 +564,7 @@ body {
     appearance: none;
     width: 100px;
     height: 4px;
-    background: #333;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 2px;
     outline: none;
     cursor: pointer;
@@ -565,6 +579,7 @@ body {
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.2s;
+    box-shadow: 0 0 10px #fff;
 }
 
 .volume-row:hover .vol-slider::-webkit-slider-thumb {
@@ -578,11 +593,12 @@ body {
     border: none;
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0 0 10px #fff;
 }
 
-/* Volume slider fill effect with red accent */
+/* Volume slider fill effect with white neon accent */
 .vol-slider {
-    background: linear-gradient(to right, #c41e3a 0%, #c41e3a var(--volume-level, 50%), #333 var(--volume-level, 50%), #333 100%);
+    background: linear-gradient(to right, #fff 0%, #fff var(--volume-level, 50%), rgba(255, 255, 255, 0.2) var(--volume-level, 50%), rgba(255, 255, 255, 0.2) 100%);
 }
 
 /* Responsive */

@@ -112,7 +112,7 @@ function switchView(viewName) {
     const homeView = document.getElementById('home-view');
     const specsView = document.getElementById('specs-view');
     const versionsView = document.getElementById('versions-view');
-    const r34View = document.getElementById('r34-view');
+    const r33View = document.getElementById('r33-view');
     const root = document.documentElement;
 
     // Header elements
@@ -123,7 +123,7 @@ function switchView(viewName) {
     const mainHeader = document.getElementById('main-header');
 
     // Hide all first
-    [homeView, specsView, versionsView, r34View].forEach(view => {
+    [homeView, specsView, versionsView, r34View, r33View].forEach(view => {
         if (view) {
             view.classList.remove('active-view');
             view.classList.add('hidden-view');
@@ -144,9 +144,27 @@ function switchView(viewName) {
         headerId.innerHTML = '<i class="fa-solid fa-fingerprint"></i> ID: BAYSIDE-034';
         mainHeader.classList.add('r34-theme');
         mainHeader.classList.remove('r35-theme');
+        mainHeader.style.borderBottomColor = 'rgba(0, 191, 255, 0.4)';
 
         r34View.classList.remove('hidden-view');
         r34View.classList.add('active-view');
+    } else if (viewName === 'r33') {
+        // Theme for R33 - Midnight Purple (based on user request wallpaper)
+        root.style.setProperty('--bg-image', "url('https://wallpapercave.com/wp/wp2727869.jpg')");
+        root.style.setProperty('--bg-filter', 'brightness(0.6) contrast(1.1)');
+        root.style.setProperty('--accent-color', '#c71585'); // Medium Violet Red / Magenta
+        root.style.setProperty('--accent-glow', 'rgba(199, 21, 133, 0.6)');
+
+        // Update Header for R33
+        headerBrand.textContent = 'SKYLINE';
+        headerModel.innerHTML = 'GTR <span class="spec" id="header-spec" style="color: #c71585;">R33</span>';
+        headerId.innerHTML = '<i class="fa-solid fa-fingerprint"></i> ID: MIDNIGHT-033';
+        mainHeader.classList.remove('r34-theme');
+        mainHeader.classList.remove('r35-theme');
+        mainHeader.style.borderBottomColor = 'rgba(199, 21, 133, 0.4)';
+
+        r33View.classList.remove('hidden-view');
+        r33View.classList.add('active-view');
     } else {
         // Default / Home / R35 Theme - B&W Monstrous
         root.style.setProperty('--bg-image', "url('https://r4.wallpaperflare.com/wallpaper/1022/53/128/ultra-wide-car-nissan-skyline-gt-r-wallpaper-8f61950fe7a12fb68eb61849ff9cb606.jpg')");
@@ -160,6 +178,7 @@ function switchView(viewName) {
         headerId.innerHTML = '<i class="fa-solid fa-fingerprint"></i> ID: VEILSIDE-001';
         mainHeader.classList.add('r35-theme');
         mainHeader.classList.remove('r34-theme');
+        mainHeader.style.borderBottomColor = ''; // Reset inline style
 
         if (viewName === 'specs') {
             specsView.classList.remove('hidden-view');
