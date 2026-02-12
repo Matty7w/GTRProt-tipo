@@ -112,6 +112,7 @@ function switchView(viewName) {
     const homeView = document.getElementById('home-view');
     const specsView = document.getElementById('specs-view');
     const versionsView = document.getElementById('versions-view');
+    const r34View = document.getElementById('r34-view');
     const r33View = document.getElementById('r33-view');
     const root = document.documentElement;
 
