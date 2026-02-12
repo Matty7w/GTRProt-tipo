@@ -272,3 +272,6 @@ document.getElementById('vol-icon-btn').addEventListener('click', function () {
     slider.style.setProperty('--volume-level', slider.value + '%');
     updateVolumeIcon();
 });
+
+// Explicitly expose onYouTubeIframeAPIReady to window so YouTube API can find it
+window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
