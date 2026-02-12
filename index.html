@@ -19,6 +19,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="specs.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 
 <body>
@@ -138,10 +139,11 @@
                     <!-- Video Card 1 -->
                     <div class="drift-card-video">
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="GTR R35 Drift"
+                            <iframe src="https://www.youtube.com/embed/bCpGC_RTvJM" title="GTR R35 Drift"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
+                                allowfullscreen
+                                style="background-image: url('https://img.youtube.com/vi/bCpGC_RTvJM/maxresdefault.jpg'); background-size: cover; background-position: center;">
                             </iframe>
                         </div>
                         <div class="video-info">
@@ -198,43 +200,260 @@
 
                 <!-- Image Gallery -->
                 <h2 class="gallery-section-title">
-                    <i class="fa-solid fa-images"></i> GALERIA DE IMAGENS
+                    <i class="fa-solid fa-images"></i> GALERIA DE IMAGENS GTR
                 </h2>
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800" alt="GTR Drift 1">
+
+                <!-- Gallery Filters -->
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fa-solid fa-border-all"></i> TODOS
+                    </button>
+                    <button class="filter-btn" data-filter="r35">
+                        <i class="fa-solid fa-car"></i> R35
+                    </button>
+                    <button class="filter-btn" data-filter="r34">
+                        <i class="fa-solid fa-car"></i> R34
+                    </button>
+                    <button class="filter-btn" data-filter="r33">
+                        <i class="fa-solid fa-car"></i> R33
+                    </button>
+                    <button class="filter-btn" data-filter="bodykit">
+                        <i class="fa-solid fa-wrench"></i> BODY KITS
+                    </button>
+                    <button class="filter-btn" data-filter="stock">
+                        <i class="fa-solid fa-certificate"></i> STOCK
+                    </button>
+                </div>
+
+                <div class="image-gallery" id="gtr-gallery">
+                    <!-- R35 Stock -->
+                    <div class="gallery-item" data-category="r35 stock">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1920"
+                            data-full="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=3840"
+                            alt="Nissan GT-R R35 Stock - Midnight Black">
                         <div class="gallery-overlay">
-                            <i class="fa-solid fa-expand"></i>
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Stock - Midnight Black</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800" alt="GTR Drift 2">
+
+                    <!-- R35 VeilSide -->
+                    <div class="gallery-item" data-category="r35 bodykit">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1920"
+                            data-full="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=3840"
+                            alt="Nissan GT-R R35 VeilSide Body Kit">
                         <div class="gallery-overlay">
-                            <i class="fa-solid fa-expand"></i>
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 VeilSide Kit</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800" alt="GTR Drift 3">
+
+                    <!-- R35 Liberty Walk -->
+                    <div class="gallery-item" data-category="r35 bodykit">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1920"
+                            data-full="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=3840"
+                            alt="Nissan GT-R R35 Liberty Walk">
                         <div class="gallery-overlay">
-                            <i class="fa-solid fa-expand"></i>
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Liberty Walk</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800" alt="GTR Drift 4">
+
+                    <!-- R35 Nismo -->
+                    <div class="gallery-item" data-category="r35 stock">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920"
+                            data-full="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=3840"
+                            alt="Nissan GT-R R35 Nismo">
                         <div class="gallery-overlay">
-                            <i class="fa-solid fa-expand"></i>
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Nismo Edition</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1542362567-b07e54a88620?w=800" alt="GTR Drift 5">
+
+                    <!-- R35 Rocket Bunny -->
+                    <div class="gallery-item" data-category="r35 bodykit">
+                        <img src="https://images.unsplash.com/photo-1542362567-b07e54a88620?w=1920"
+                            data-full="https://images.unsplash.com/photo-1542362567-b07e54a88620?w=3840"
+                            alt="Nissan GT-R R35 Rocket Bunny">
                         <div class="gallery-overlay">
-                            <i class="fa-solid fa-expand"></i>
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Rocket Bunny</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800" alt="GTR Drift 6">
+
+                    <!-- R35 Track Edition -->
+                    <div class="gallery-item" data-category="r35 stock">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920"
+                            data-full="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=3840"
+                            alt="Nissan GT-R R35 Track Edition">
                         <div class="gallery-overlay">
-                            <i class="fa-solid fa-expand"></i>
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Track Edition</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R34 Bayside Blue -->
+                    <div class="gallery-item" data-category="r34 stock">
+                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1920"
+                            data-full="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=3840"
+                            alt="Nissan Skyline GT-R R34 Bayside Blue">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R34 Bayside Blue</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R34 V-Spec -->
+                    <div class="gallery-item" data-category="r34 stock">
+                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1920"
+                            data-full="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=3840"
+                            alt="Nissan Skyline GT-R R34 V-Spec">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R34 V-Spec</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R34 Modified -->
+                    <div class="gallery-item" data-category="r34 bodykit">
+                        <img src="https://images.unsplash.com/photo-1621135802920-1f1e4e1c3d3d?w=1920"
+                            data-full="https://images.unsplash.com/photo-1621135802920-1f1e4e1c3d3d?w=3840"
+                            alt="Nissan Skyline GT-R R34 Modified">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R34 Custom Kit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R34 Midnight Purple -->
+                    <div class="gallery-item" data-category="r34 stock">
+                        <img src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=1920"
+                            data-full="https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=3840"
+                            alt="Nissan Skyline GT-R R34 Midnight Purple">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R34 Midnight Purple</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R33 Stock -->
+                    <div class="gallery-item" data-category="r33 stock">
+                        <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1920"
+                            data-full="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=3840"
+                            alt="Nissan Skyline GT-R R33">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R33 GT-R Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R33 400R -->
+                    <div class="gallery-item" data-category="r33 stock">
+                        <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1920"
+                            data-full="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=3840"
+                            alt="Nissan Skyline GT-R R33 400R">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R33 NISMO 400R</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R33 Modified -->
+                    <div class="gallery-item" data-category="r33 bodykit">
+                        <img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=1920"
+                            data-full="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=3840"
+                            alt="Nissan Skyline GT-R R33 Modified">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R33 Wide Body</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More R35 Variants -->
+                    <div class="gallery-item" data-category="r35 bodykit">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1920"
+                            data-full="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=3840"
+                            alt="Nissan GT-R R35 Varis">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Varis Kamikaze</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="r35 stock">
+                        <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=1920"
+                            data-full="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=3840"
+                            alt="Nissan GT-R R35 Pearl White">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Pearl White</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="r35 bodykit">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920"
+                            data-full="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=3840"
+                            alt="Nissan GT-R R35 Widebody">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R35 Widebody Custom</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More R34 Variants -->
+                    <div class="gallery-item" data-category="r34 bodykit">
+                        <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1920"
+                            data-full="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=3840"
+                            alt="Nissan Skyline GT-R R34 Drift">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R34 Drift Spec</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="r34 stock">
+                        <img src="https://images.unsplash.com/photo-1597404294360-feeeda4fc7ff?w=1920"
+                            data-full="https://images.unsplash.com/photo-1597404294360-feeeda4fc7ff?w=3840"
+                            alt="Nissan Skyline GT-R R34 Nür">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <i class="fa-solid fa-expand"></i>
+                                <span class="image-title">R34 V-Spec II Nür</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1012,6 +1231,33 @@
                 <div class="footer-note"
                     style="margin-top: 3rem; text-align: center; color: #888; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
                     <p>SKYLINE R33 GT-R: A evolução silenciosa que definiu o futuro.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="close-lightbox">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <button class="lightbox-download" id="download-image">
+                    <i class="fa-solid fa-download"></i> DOWNLOAD HD
+                </button>
+                <div class="lightbox-image-container">
+                    <img id="lightbox-image" src="" alt="">
+                </div>
+                <div class="lightbox-info">
+                    <h3 id="lightbox-title"></h3>
+                    <p id="lightbox-description">Clique em "DOWNLOAD HD" para salvar a imagem em alta resolução</p>
+                </div>
+                <div class="lightbox-navigation">
+                    <button class="lightbox-nav-btn" id="prev-image">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="lightbox-nav-btn" id="next-image">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>

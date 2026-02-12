@@ -308,3 +308,141 @@ document.getElementById('vol-icon-btn').addEventListener('click', function () {
 
 // Explicitly expose onYouTubeIframeAPIReady to window so YouTube API can find it
 window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+
+/* ====================================
+   IMAGE GALLERY LOGIC
+   ==================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.getElementById('gtr-gallery');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const lightbox = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxClose = document.getElementById('close-lightbox');
+    const lightboxDownload = document.getElementById('download-image');
+    const prevBtn = document.getElementById('prev-image');
+    const nextBtn = document.getElementById('next-image');
+
+    let currentImages = Array.from(galleryItems);
+    let currentIndex = 0;
+
+    // Filter Logic
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category.includes(filter)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Update current visible images for lightbox navigation
+            currentImages = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+        });
+    });
+
+    // Lightbox Logic
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            currentIndex = currentImages.indexOf(item);
+            openLightbox(item);
+        });
+    });
+
+    function openLightbox(item) {
+        const img = item.querySelector('img');
+        const fullSrc = img.getAttribute('data-full');
+        const title = item.querySelector('.image-title').textContent;
+
+        lightboxImg.src = fullSrc;
+        lightboxTitle.textContent = title;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scroll
+        setTimeout(() => {
+            lightboxImg.src = ''; // Clear src after animation
+        }, 300);
+    }
+
+    function navigateLightbox(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = currentImages.length - 1;
+        if (currentIndex >= currentImages.length) currentIndex = 0;
+
+        const nextItem = currentImages[currentIndex];
+        const img = nextItem.querySelector('img');
+        const fullSrc = img.getAttribute('data-full');
+        const title = nextItem.querySelector('.image-title').textContent;
+
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = fullSrc;
+            lightboxTitle.textContent = title;
+            lightboxImg.style.opacity = '1';
+        }, 200);
+    }
+
+    // Event Listeners for Lightbox
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateLightbox(-1);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateLightbox(1);
+    });
+
+    // Download Logic
+    lightboxDownload.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const imageUrl = lightboxImg.src;
+        const fileName = `GTR_${lightboxTitle.textContent.replace(/\s+/g, '_')}.jpg`;
+
+        try {
+            const response = await fetch(imageUrl);
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Erro ao baixar a imagem:', error);
+            // Fallback: open in new tab
+            window.open(imageUrl, '_blank');
+        }
+    });
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+});
