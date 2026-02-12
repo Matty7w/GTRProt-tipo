@@ -111,6 +111,7 @@ document.getElementById('play-pause-btn').addEventListener('click', function () 
 // View Switching Logic (SPA)
 function switchView(viewName) {
     const homeView = document.getElementById('home-view');
+    const menuView = document.getElementById('menu-view');
     const specsView = document.getElementById('specs-view');
     const versionsView = document.getElementById('versions-view');
     const r34View = document.getElementById('r34-view');
@@ -125,7 +126,7 @@ function switchView(viewName) {
     const mainHeader = document.getElementById('main-header');
 
     // Hide all first
-    [homeView, specsView, versionsView, r34View, r33View].forEach(view => {
+    [homeView, menuView, specsView, versionsView, r34View, r33View].forEach(view => {
         if (view) {
             view.classList.remove('active-view');
             view.classList.add('hidden-view');
@@ -182,7 +183,10 @@ function switchView(viewName) {
         mainHeader.classList.remove('r34-theme');
         mainHeader.style.borderBottomColor = ''; // Reset inline style
 
-        if (viewName === 'specs') {
+        if (viewName === 'menu') {
+            menuView.classList.remove('hidden-view');
+            menuView.classList.add('active-view');
+        } else if (viewName === 'specs') {
             specsView.classList.remove('hidden-view');
             specsView.classList.add('active-view');
         } else if (viewName === 'versions') {
@@ -240,13 +244,9 @@ function updateTrackInfo() {
     albumPlaceholder.style.display = 'none';
 }
 
-// Extra: CTA Button Sound / Effect
-document.getElementById('ignite-btn').addEventListener('click', () => {
-    if (player) {
-        player.playVideo();
-        document.body.classList.add('ignited');
-    }
-});
+// Extra: Music Player Auto-start (optional)
+// Removed ignite-btn listener as button now navigates to menu
+
 
 // Like button toggle (cosmetic)
 document.getElementById('like-btn').addEventListener('click', function () {

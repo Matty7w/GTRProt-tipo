@@ -52,14 +52,72 @@
                     O GTR R35 VeilSide não pede passagem, ele toma o espaço.
                 </p>
                 <div class="cta-container">
-                    <button class="btn-primary" id="ignite-btn">INICIAR SISTEMA</button>
+                    <button class="btn-primary" onclick="switchView('menu')">INICIAR SISTEMA</button>
                     <button class="btn-secondary" onclick="switchView('specs')">ESPECIFICAÇÕES</button>
                     <button class="btn-secondary" onclick="switchView('versions')">VERSÕES</button>
                 </div>
             </section>
         </div>
 
-        <!-- VIEW 2: SPECS (HIDDEN INITIALLY) -->
+        <!-- VIEW 2: MENU (HIDDEN INITIALLY) -->
+        <div id="menu-view" class="view-section hidden-view">
+            <section class="menu-content">
+                <h1 class="glitch-title neon-white" data-text="SISTEMA ATIVADO">SISTEMA ATIVADO</h1>
+                <h2 class="sub-title">SELECIONE SUA MISSÃO</h2>
+                <p class="description" style="margin-bottom: 3rem;">
+                    Acesso total concedido. Escolha sua próxima ação no protocolo GTR.
+                </p>
+
+                <div class="menu-grid">
+                    <!-- Option 1: Drift Gallery -->
+                    <div class="menu-card drift-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3>DRIFT GALLERY</h3>
+                        <p>Assista aos melhores momentos de drift e performance em ação. Vídeos exclusivos do GTR
+                            dominando as pistas.</p>
+                        <button class="btn-menu" onclick="switchView('drift')">
+                            <i class="fa-solid fa-play"></i> ASSISTIR AGORA
+                        </button>
+                    </div>
+
+                    <!-- Option 2: Customização -->
+                    <div class="menu-card custom-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h3>CUSTOMIZAÇÃO</h3>
+                        <p>Edite e personalize seu GTR. Escolha body kits, cores, rodas e crie a máquina dos seus
+                            sonhos.</p>
+                        <button class="btn-menu" onclick="switchView('custom')">
+                            <i class="fa-solid fa-paintbrush"></i> CUSTOMIZAR
+                        </button>
+                    </div>
+
+                    <!-- Option 3: Performance Stats -->
+                    <div class="menu-card stats-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3>PERFORMANCE</h3>
+                        <p>Análise técnica completa. Especificações, comparativos e dados de performance de todas as
+                            gerações GTR.</p>
+                        <button class="btn-menu" onclick="switchView('specs')">
+                            <i class="fa-solid fa-chart-line"></i> ANALISAR
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-footer">
+                    <button class="btn-secondary" onclick="switchView('home')">
+                        <i class="fa-solid fa-arrow-left"></i> VOLTAR AO COCKPIT
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW 3: SPECS (HIDDEN INITIALLY) -->
         <div id="specs-view" class="view-section hidden-view specs-layout">
             <!-- Header Specífico (ou botão voltar) -->
             <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
@@ -615,7 +673,8 @@
                         <p style="margin-bottom: 1rem; color: #ddd; text-shadow: 0 0 2px rgba(0,0,0,0.8);">O
                             <strong>Nissan Skyline GT-R R33</strong> (chassi BCNR33) chegou em 1995 com uma missão
                             difícil: suceder o lendário R32. Frequentemente chamado de "o patinho feio" da trilogia, o
-                            R33 é tecnicamente superior ao seu antecessor em estabilidade e aerodinâmica.</p>
+                            R33 é tecnicamente superior ao seu antecessor em estabilidade e aerodinâmica.
+                        </p>
                         <p style="margin-bottom: 1rem; color: #ddd; text-shadow: 0 0 2px rgba(0,0,0,0.8);">Foi o
                             primeiro carro de produção a quebrar a barreira dos 8 minutos no circuito de Nürburgring
                             Nordschleife, provando que seu chassi mais longo e largo trazia benefícios reais em pistas

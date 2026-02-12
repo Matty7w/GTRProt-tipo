@@ -665,3 +665,233 @@ body.ignited .scanlines {
         filter: grayscale(100%) contrast(1.3) brightness(0.8);
     }
 }
+
+/* ====================================
+   MENU VIEW STYLES
+   ==================================== */
+.menu-content {
+    text-align: center;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.menu-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.menu-card:hover::before {
+    left: 100%;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.drift-card:hover {
+    border-color: rgba(255, 50, 50, 0.6);
+    box-shadow: 0 20px 60px rgba(255, 50, 50, 0.3),
+        0 0 40px rgba(255, 50, 50, 0.2);
+}
+
+.custom-card:hover {
+    border-color: rgba(50, 200, 255, 0.6);
+    box-shadow: 0 20px 60px rgba(50, 200, 255, 0.3),
+        0 0 40px rgba(50, 200, 255, 0.2);
+}
+
+.stats-card:hover {
+    border-color: rgba(50, 255, 100, 0.6);
+    box-shadow: 0 20px 60px rgba(50, 255, 100, 0.3),
+        0 0 40px rgba(50, 255, 100, 0.2);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    transition: all 0.4s ease;
+}
+
+.menu-card:hover .card-icon {
+    transform: rotateY(360deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.drift-card:hover .card-icon {
+    color: #ff3232;
+    border-color: rgba(255, 50, 50, 0.6);
+    box-shadow: 0 0 30px rgba(255, 50, 50, 0.4);
+}
+
+.custom-card:hover .card-icon {
+    color: #32c8ff;
+    border-color: rgba(50, 200, 255, 0.6);
+    box-shadow: 0 0 30px rgba(50, 200, 255, 0.4);
+}
+
+.stats-card:hover .card-icon {
+    color: #32ff64;
+    border-color: rgba(50, 255, 100, 0.6);
+    box-shadow: 0 0 30px rgba(50, 255, 100, 0.4);
+}
+
+.menu-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.menu-card:hover h3 {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.menu-card p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 2rem;
+    min-height: 60px;
+}
+
+.btn-menu {
+    padding: 0.8rem 2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transition: all 0.3s ease;
+    clip-path: polygon(8% 0, 100% 0, 100% 75%, 92% 100%, 0 100%, 0 25%);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-menu::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.btn-menu:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-menu:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.drift-card .btn-menu:hover {
+    border-color: rgba(255, 50, 50, 0.8);
+    box-shadow: 0 5px 20px rgba(255, 50, 50, 0.4);
+}
+
+.custom-card .btn-menu:hover {
+    border-color: rgba(50, 200, 255, 0.8);
+    box-shadow: 0 5px 20px rgba(50, 200, 255, 0.4);
+}
+
+.stats-card .btn-menu:hover {
+    border-color: rgba(50, 255, 100, 0.8);
+    box-shadow: 0 5px 20px rgba(50, 255, 100, 0.4);
+}
+
+.btn-menu i {
+    margin-right: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem 0;
+    }
+
+    .menu-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .menu-card h3 {
+        font-size: 1.5rem;
+    }
+}
