@@ -153,7 +153,7 @@ function switchView(viewName) {
     } else if (viewName === 'r33') {
         // Theme for R33 - Midnight Purple (based on user request wallpaper)
         root.style.setProperty('--bg-image', "url('https://wallpapercave.com/wp/wp2727869.jpg')");
-        root.style.setProperty('--bg-filter', 'brightness(0.6) contrast(1.1)');
+        root.style.setProperty('--bg-filter', 'brightness(0.3) contrast(1.2)'); // Darker for neon pop
         root.style.setProperty('--accent-color', '#c71585'); // Medium Violet Red / Magenta
         root.style.setProperty('--accent-glow', 'rgba(199, 21, 133, 0.6)');
 
