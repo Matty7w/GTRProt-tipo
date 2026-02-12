@@ -10,7 +10,7 @@ var currentTrackIndex = 0;
 
 // Playlist
 const playlist = [
-    { id: '0YP5gIIRomM', title: 'PHONK MIX', artist: 'GTR VIBES' }
+    { id: 'PAjD4GFi3Ko', title: 'NEON BLADE', artist: 'MOONDEITY', start: 49 }
 ];
 
 function onYouTubeIframeAPIReady() {
@@ -27,7 +27,8 @@ function onYouTubeIframeAPIReady() {
             'modestbranding': 1,
             'rel': 0,
             'showinfo': 0,
-            'loop': 1, // Loop playlist handled manually for better control
+            'loop': 1,
+            'start': playlist[currentTrackIndex].start || 0 // Set start time for initial video
         },
         events: {
             'onReady': onPlayerReady,
@@ -212,7 +213,11 @@ function prevTrack() {
 
 function loadTrack(index) {
     if (player) {
-        player.loadVideoById(playlist[index].id);
+        const track = playlist[index];
+        player.loadVideoById({
+            videoId: track.id,
+            startSeconds: track.start || 0
+        });
         updateTrackInfo();
         player.playVideo(); // Auto play next track
     }
