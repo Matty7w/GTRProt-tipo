@@ -71,6 +71,47 @@
     animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
+/* R33 Specific Intense Neon */
+.r33-page .specs-title .highlight {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #ff00ff,
+        0 0 30px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 70px #ff00ff,
+        0 0 80px #ff00ff,
+        0 0 100px #ff00ff;
+    animation: neonPulsateR33 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulsateR33 {
+    0% {
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px #ff00ff,
+            0 0 80px #ff00ff,
+            0 0 90px #ff00ff,
+            0 0 100px #ff00ff,
+            0 0 150px #ff00ff;
+    }
+
+    100% {
+        text-shadow:
+            0 0 2px #fff,
+            0 0 4px #fff,
+            0 0 6px #fff,
+            0 0 10px #ff00ff,
+            0 0 45px #ff00ff,
+            0 0 55px #ff00ff,
+            0 0 70px #ff00ff,
+            0 0 80px #ff00ff;
+    }
+}
+
 /* ====== SPEC CARDS GRID ====== */
 .specs-grid {
     display: grid;
