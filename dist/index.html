@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTR R35 VeilSide | Protocolo Monstro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,700&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+  <link rel="stylesheet" crossorigin href="/assets/index-BhkO9fxe.css">
+</head>
+
+<body>
+    <!-- Background Container -->
+    <div class="background-container">
+        <div class="overlay"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="app-container">
+        <!-- Header / Nav -->
+        <header class="top-nav" id="main-header">
+            <div class="logo">
+                <span class="brand" id="header-brand">NISSAN</span> <span class="model" id="header-model">GTR <span
+                        class="spec" id="header-spec">R35</span></span>
+            </div>
+            <div class="status-indicators">
+                <div class="stat-item"><i class="fa-solid fa-signal"></i> SYSTEM: ONLINE</div>
+                <div class="stat-item" id="header-id"><i class="fa-solid fa-fingerprint"></i> ID: VEILSIDE-001</div>
+            </div>
+        </header>
+
+        <!-- VIEW 1: HOME (COCKPIT) -->
+        <div id="home-view" class="view-section active-view">
+            <!-- Hero Section -->
+            <section class="hero-content">
+                <h1 class="glitch-title neon-white" data-text="THE LEGEND">THE LEGEND</h1>
+                <h2 class="sub-title">COMBAT EVOLUTION</h2>
+                <p class="description">
+                    A perfeição em forma de máquina. Aerodinâmica agressiva. Performance brutal.
+                    O GTR R35 VeilSide não pede passagem, ele toma o espaço.
+                </p>
+                <div class="cta-container">
+                    <button class="btn-primary" id="ignite-btn">INICIAR SISTEMA</button>
+                    <button class="btn-secondary" onclick="switchView('specs')">ESPECIFICAÇÕES</button>
+                    <button class="btn-secondary" onclick="switchView('versions')">VERSÕES</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW 2: SPECS (HIDDEN INITIALLY) -->
+        <div id="specs-view" class="view-section hidden-view specs-layout">
+            <!-- Header Specífico (ou botão voltar) -->
+            <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <button class="btn-secondary small-btn" onclick="switchView('home')"><i
+                        class="fa-solid fa-arrow-left"></i> VOLTAR AO COCKPIT</button>
+                <button class="btn-secondary small-btn" onclick="switchView('versions')">
+                    <i class="fa-solid fa-layer-group"></i> OUTRAS VERSÕES</button>
+            </div>
+
+            <!-- Specs Content Copied -->
+            <div class="specs-content-wrapper">
+                <h1 class="specs-title">SISTEMA DE ANÁLISE DETALHADA <br><span class="highlight">R35</span>
+                </h1>
+
+                <!-- Section 1: Core Specs -->
+                <section class="specs-grid">
+                    <div class="spec-card">
+                        <h2><i class="fa-solid fa-car-side"></i> MOTORIZAÇÃO</h2>
+                        <ul>
+                            <li><strong>Motor:</strong> V6 biturbo 3.8L (VR38DETT)</li>
+                            <li><strong>Potência:</strong> 572 cv (Standard) / 600 cv (Nismo)</li>
+                            <li><strong>Torque:</strong> 652 Nm (3.300 - 5.800 rpm)</li>
+                            <li><strong>Construção:</strong> Artesanal "Takumi"</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <h2><i class="fa-solid fa-gears"></i> TRANSMISSÃO</h2>
+                        <ul>
+                            <li><strong>Câmbio:</strong> Dupla Embreagem 6 vel.</li>
+                            <li><strong>Tração:</strong> Integral (ATTESA E-TS)</li>
+                            <li><strong>Diferencial:</strong> Transeixo Traseiro</li>
+                            <li><strong>Controle:</strong> Super-HICAS (Estabilidade)</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <h2><i class="fa-solid fa-gauge-high"></i> PERFORMANCE</h2>
+                        <ul>
+                            <li><strong>0-100 km/h:</strong> ~3.0 segundos</li>
+                            <li><strong>Velocidade Máx:</strong> 313 km/h</li>
+                            <li><strong>Peso:</strong> 1.740 kg</li>
+                            <li><strong>Tanque:</strong> 74 Litros</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <h2><i class="fa-solid fa-ruler-combined"></i> DIMENSÕES</h2>
+                        <ul>
+                            <li><strong>Comprimento:</strong> 4.656 mm</li>
+                            <li><strong>Largura:</strong> 1.895 mm</li>
+                            <li><strong>Altura:</strong> 1.369 mm</li>
+                            <li><strong>Entre-eixos:</strong> 2.780 mm</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 2: Detailed Data Table -->
+                <section class="detailed-specs">
+                    <h3><i class="fa-solid fa-timeline"></i> EVOLUÇÃO CRONOLÓGICA</h3>
+                    <div class="timeline-container">
+                        <div class="timeline-item">
+                            <span class="year">2007</span>
+                            <p>Lançamento (480 cv)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2009</span>
+                            <p>Upgrade Suspensão (485 cv)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2012</span>
+                            <p>Black Edition (550 cv)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2017</span>
+                            <p>Facelift & Nismo (600 cv)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2020</span>
+                            <p>50th Anniversary</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Comparative -->
+                <section class="comparison-table-wrapper">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> ANÁLISE COMPARATIVA</h3>
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>MODELO</th>
+                                <th>POTÊNCIA</th>
+                                <th>TORQUE</th>
+                                <th>VALOR ESTIMADO (BRL)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight-row">
+                                <td>NISSAN GT-R R35</td>
+                                <td>600 cv</td>
+                                <td>652 Nm</td>
+                                <td>R$ 1.462.017</td>
+                            </tr>
+                            <tr>
+                                <td>PORSCHE 911 TURBO S</td>
+                                <td>640 cv</td>
+                                <td>800 Nm</td>
+                                <td>R$ 1.500.000</td>
+                            </tr>
+                            <tr>
+                                <td>FERRARI F8 TRIBUTO</td>
+                                <td>720 cv</td>
+                                <td>770 Nm</td>
+                                <td>R$ 3.000.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Section 4: Body Kits -->
+                <section class="body-kits-section">
+                    <h3><i class="fa-solid fa-puzzle-piece"></i> ARSENAL DE PERSONALIZAÇÃO (BODY KITS)</h3>
+                    <div class="kits-grid">
+                        <div class="kit-card">
+                            <h4>VEILSIDE</h4>
+                            <p>Famoso pela largura extrema e visual agressivo, imortalizado em Fast & Furious.</p>
+                        </div>
+                        <div class="kit-card">
+                            <h4>LIBERTY WALK</h4>
+                            <p>Para-lamas alargados com rebites expostos e postura rebaixada (Stance).</p>
+                        </div>
+                        <div class="kit-card">
+                            <h4>PANDEM / ROCKET BUNNY</h4>
+                            <p>Estética "drift-ready" com aerofólios gigantes e difusores agressivos.</p>
+                        </div>
+                        <div class="kit-card">
+                            <h4>VARIS KAMIKAZE</h4>
+                            <p>Focado em time-attack, aerodinâmica funcional extrema em fibra de carbono.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="footer-note">
+                    <p>O GT-R R35 encerrou sua produção em 2024, após 17 anos de dominância.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Player - Spotify Style Footer -->
+        <div class="music-player-bar" id="global-player">
+            <!-- YouTube Iframe (Hidden) -->
+            <div id="youtube-player" style="display:none;"></div>
+
+            <!-- Left: Track Info -->
+            <div class="player-left">
+                <div class="track-artwork" id="album-art">
+                    <img src="" alt="Album Art" id="album-img" style="display:none;">
+                    <i class="fa-solid fa-compact-disc" id="album-placeholder"></i>
+                </div>
+                <div class="track-meta">
+                    <span class="track-title" id="track-name">SYSTEM STANDBY</span>
+                    <span class="track-artist" id="artist-name">Aguardando...</span>
+                </div>
+                <button class="like-btn" id="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+
+            <!-- Center: Controls & Progress -->
+            <div class="player-center">
+                <div class="center-controls">
+                    <button class="ctrl-btn" id="shuffle-btn"><i class="fa-solid fa-shuffle"></i></button>
+                    <button class="ctrl-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+                    <button class="ctrl-btn play-btn" id="play-pause-btn"><i class="fa-solid fa-play"></i></button>
+                    <button class="ctrl-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+                    <button class="ctrl-btn" id="repeat-btn"><i class="fa-solid fa-repeat"></i></button>
+                </div>
+                <div class="progress-row">
+                    <span class="time-label" id="curr-time">0:00</span>
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progress-fill"></div>
+                    </div>
+                    <span class="time-label" id="total-time">0:00</span>
+                </div>
+            </div>
+
+            <!-- Right: Queue/Library + Volume -->
+            <div class="player-right">
+                <button class="ctrl-btn" id="queue-btn" title="Fila"><i class="fa-solid fa-bars"></i></button>
+                <button class="ctrl-btn" id="vol-icon-btn"><i class="fa-solid fa-volume-high"
+                        id="vol-icon"></i></button>
+                <input type="range" id="volume-slider" class="vol-slider" min="0" max="100" value="50">
+            </div>
+        </div>
+        <!-- VIEW 3: VERSIONS (HIDDEN INITIALLY) -->
+        <div id="versions-view" class="view-section hidden-view specs-layout">
+            <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <button class="btn-secondary small-btn" onclick="switchView('home')"><i
+                        class="fa-solid fa-arrow-left"></i> VOLTAR AO COCKPIT</button>
+                <button class="btn-secondary small-btn" onclick="switchView('specs')">
+                    <i class="fa-solid fa-file-contract"></i> ESPECIFICAÇÕES R35</button>
+            </div>
+
+            <div class="specs-content-wrapper">
+                <h1 class="specs-title">HERANÇA LENDÁRIA <br><span class="highlight">GERAÇÕES GTR</span></h1>
+
+                <div class="kits-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
+                    <!-- R33 -->
+                    <div class="kit-card" style="padding: 3rem 2rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; color: rgba(255,255,255,0.1); font-size: 5rem; position: absolute; top: -10px; right: 10px; font-weight: 900;">R33</span>
+                        <h4>SKYLINE GTR R33</h4>
+                        <p>O mestre da estabilidade. O primeiro carro de produção a baixar dos 8 minutos em Nürburgring.
+                        </p>
+                        <button class="btn-secondary small-btn" style="margin-top: 2rem; width: 100%;">EXPLORAR (EM
+                            BREVE)</button>
+                    </div>
+
+                    <!-- R34 -->
+                    <div class="kit-card" style="padding: 3rem 2rem; border-color: rgba(255,255,255,0.3);">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; color: rgba(255,255,255,0.1); font-size: 5rem; position: absolute; top: -10px; right: 10px; font-weight: 900;">R34</span>
+                        <h4>SKYLINE GTR R34</h4>
+                        <p>O ídolo máximo. Godzilla em sua forma mais pura de tração integral e tecnologia japonesa anos
+                            90.</p>
+                        <button class="btn-secondary small-btn" style="margin-top: 2rem; width: 100%;"
+                            onclick="switchView('r34')">EXPLORAR AGORA</button>
+                    </div>
+
+                    <!-- R35 -->
+                    <div class="kit-card" style="padding: 3rem 2rem; background: rgba(255,255,255,0.05);">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; color: rgba(255,255,255,0.1); font-size: 5rem; position: absolute; top: -10px; right: 10px; font-weight: 900;">R35</span>
+                        <h4>NISSAN GTR R35</h4>
+                        <p>A evolução atual. O destruidor de supercarros que redefiniu o que é possível em performance.
+                        </p>
+                        <button class="btn-secondary small-btn"
+                            style="margin-top: 2rem; width: 100%; border-color: #fff;"
+                            onclick="switchView('specs')">PÁGINA ATUAL</button>
+                    </div>
+                </div>
+
+                <div class="footer-note" style="margin-top: 5rem;">
+                    <p>A Linhagem dos Reis: Do Skyline ao monstro moderno.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 4: R34 SPECS (HIDDEN INITIALLY) -->
+        <div id="r34-view" class="view-section hidden-view specs-layout">
+            <div class="specs-nav-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <button class="btn-secondary small-btn" onclick="switchView('home')"><i
+                        class="fa-solid fa-arrow-left"></i> VOLTAR AO COCKPIT</button>
+                <button class="btn-secondary small-btn" onclick="switchView('versions')">
+                    <i class="fa-solid fa-layer-group"></i> OUTRAS VERSÕES</button>
+            </div>
+
+            <div class="specs-content-wrapper r34-page">
+                <h1 class="specs-title">ARQUIVO CLASSIFICADO <br><span class="highlight">SKYLINE R34 GT-R</span></h1>
+                <p class="r34-subtitle">BNR34 | 1999-2002 | O Último Skyline Puro</p>
+
+                <!-- Hero Stats Bar -->
+                <div class="r34-hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-value">280</span>
+                        <span class="stat-label">cv (Oficial)</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">2.6L</span>
+                        <span class="stat-label">RB26DETT</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">4.9s</span>
+                        <span class="stat-label">0-100 km/h</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">AWD</span>
+                        <span class="stat-label">ATTESA E-TS</span>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <section class="r34-section">
+                    <h3><i class="fa-solid fa-scroll"></i> HISTÓRIA LENDÁRIA</h3>
+                    <div class="history-content">
+                        <p>O <strong>Nissan Skyline GT-R R34</strong> (chassi BNR34) foi produzido entre <strong>1999 e
+                                2002</strong>, representando a quinta e última geração do Skyline GT-R antes da
+                            transição para o Nissan GT-R R35.</p>
+                        <p>Desenvolvido como a evolução definitiva da linhagem Skyline, o R34 incorporou todas as lições
+                            aprendidas com seus predecessores R32 e R33, resultando em um carro mais compacto, mais
+                            rígido e tecnologicamente mais avançado.</p>
+                        <p>O apelido <strong>"Godzilla"</strong> foi conferido pela imprensa australiana após o R32
+                            dominar o campeonato de turismo local, e desde então se tornou sinônimo de todos os GT-Rs.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Technical Specs Grid -->
+                <section class="r34-section">
+                    <h3><i class="fa-solid fa-wrench"></i> ESPECIFICAÇÕES TÉCNICAS</h3>
+                    <div class="r34-specs-grid">
+                        <div class="r34-spec-card">
+                            <div class="spec-icon"><i class="fa-solid fa-engine"></i></div>
+                            <h4>MOTOR RB26DETT</h4>
+                            <table class="spec-table">
+                                <tr>
+                                    <td>Tipo</td>
+                                    <td>I6 Twin-Turbo DOHC 24v</td>
+                                </tr>
+                                <tr>
+                                    <td>Cilindrada</td>
+                                    <td>2.568 cc</td>
+                                </tr>
+                                <tr>
+                                    <td>Potência Oficial</td>
+                                    <td>280 cv @ 6.800 rpm</td>
+                                </tr>
+                                <tr>
+                                    <td>Potência Real</td>
+                                    <td>~330 cv (subestimado)</td>
+                                </tr>
+                                <tr>
+                                    <td>Torque</td>
+                                    <td>392 Nm @ 4.400 rpm</td>
+                                </tr>
+                                <tr>
+                                    <td>Turbos</td>
+                                    <td>2x Garrett T25 cerâmicos</td>
+                                </tr>
+                                <tr>
+                                    <td>Redline</td>
+                                    <td>8.000 rpm</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="r34-spec-card">
+                            <div class="spec-icon"><i class="fa-solid fa-gears"></i></div>
+                            <h4>TRANSMISSÃO</h4>
+                            <table class="spec-table">
+                                <tr>
+                                    <td>Câmbio</td>
+                                    <td>Getrag V160 6-speed</td>
+                                </tr>
+                                <tr>
+                                    <td>Tração</td>
+                                    <td>ATTESA E-TS Pro AWD</td>
+                                </tr>
+                                <tr>
+                                    <td>Split Torque</td>
+                                    <td>0:100 a 50:50</td>
+                                </tr>
+                                <tr>
+                                    <td>Diferencial</td>
+                                    <td>Active LSD (Traseiro)</td>
+                                </tr>
+                                <tr>
+                                    <td>Controle</td>
+                                    <td>Super-HICAS (4WS)</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="r34-spec-card">
+                            <div class="spec-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                            <h4>PERFORMANCE</h4>
+                            <table class="spec-table">
+                                <tr>
+                                    <td>0-100 km/h</td>
+                                    <td>4.9 segundos</td>
+                                </tr>
+                                <tr>
+                                    <td>0-400m</td>
+                                    <td>13.0 segundos</td>
+                                </tr>
+                                <tr>
+                                    <td>Vel. Máxima</td>
+                                    <td>250 km/h (limitada)</td>
+                                </tr>
+                                <tr>
+                                    <td>Vel. Real</td>
+                                    <td>~300 km/h (delimitado)</td>
+                                </tr>
+                                <tr>
+                                    <td>Peso</td>
+                                    <td>1.560 kg (V-Spec)</td>
+                                </tr>
+                                <tr>
+                                    <td>Distrib. Peso</td>
+                                    <td>55:45 (F:R)</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="r34-spec-card">
+                            <div class="spec-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                            <h4>DIMENSÕES</h4>
+                            <table class="spec-table">
+                                <tr>
+                                    <td>Comprimento</td>
+                                    <td>4.600 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Largura</td>
+                                    <td>1.785 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Altura</td>
+                                    <td>1.360 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Entre-eixos</td>
+                                    <td>2.665 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanque</td>
+                                    <td>65 litros</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Versions Section -->
+                <section class="r34-section">
+                    <h3><i class="fa-solid fa-layer-group"></i> VARIANTES E EDIÇÕES</h3>
+                    <div class="versions-grid">
+                        <div class="version-card">
+                            <span class="version-badge">BASE</span>
+                            <h4>GT-R V-Spec</h4>
+                            <p>Versão de alto desempenho com ATTESA E-TS Pro, suspensão ajustada e freios Brembo.</p>
+                        </div>
+                        <div class="version-card featured">
+                            <span class="version-badge">RARO</span>
+                            <h4>GT-R V-Spec II</h4>
+                            <p>Capô em fibra de carbono, rodas de 18", aerodinâmica aprimorada e peso reduzido.</p>
+                        </div>
+                        <div class="version-card">
+                            <span class="version-badge">TRACK</span>
+                            <h4>GT-R V-Spec II Nür</h4>
+                            <p>Motor N1 especial, apenas 750 unidades. Traz turbos de esferas e ECU exclusiva.</p>
+                        </div>
+                        <div class="version-card special">
+                            <span class="version-badge">ULTRA RARO</span>
+                            <h4>GT-R M-Spec Nür</h4>
+                            <p>Apenas 252 unidades. Foco em conforto com suspensão Ripple Control e interior premium.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cultural Impact -->
+                <section class="r34-section">
+                    <h3><i class="fa-solid fa-film"></i> IMPACTO CULTURAL</h3>
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <h4>Gran Turismo</h4>
+                            <p>Carro icônico da franquia, aparecendo como veículo inicial em vários jogos.</p>
+                        </div>
+                        <div class="culture-item">
+                            <i class="fa-solid fa-video"></i>
+                            <h4>Velozes e Furiosos</h4>
+                            <p>O R34 de Brian O'Conner (Paul Walker) em "2 Fast 2 Furious" se tornou um ícone do cinema.
+                            </p>
+                        </div>
+                        <div class="culture-item">
+                            <i class="fa-solid fa-trophy"></i>
+                            <h4>Motorsport</h4>
+                            <p>Dominou o JGTC (Super GT) e diversas competições de arrancada ao redor do mundo.</p>
+                        </div>
+                        <div class="culture-item">
+                            <i class="fa-solid fa-yen-sign"></i>
+                            <h4>Valorização</h4>
+                            <p>Preços dispararam após legalização nos EUA (regra dos 25 anos). Nürs ultrapassam
+                                $500.000.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fun Facts -->
+                <section class="r34-section">
+                    <h3><i class="fa-solid fa-lightbulb"></i> CURIOSIDADES</h3>
+                    <div class="facts-list">
+                        <div class="fact-item">
+                            <span class="fact-number">01</span>
+                            <p>O "Gentleman's Agreement" limitava todos os carros japoneses a 280cv oficialmente, mas o
+                                R34 produzia cerca de 330cv reais.</p>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-number">02</span>
+                            <p>O display multifunção (MFD) foi um dos primeiros sistemas de telemetria em tempo real em
+                                um carro de produção.</p>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-number">03</span>
+                            <p>A cor "Bayside Blue" (TV2) se tornou tão icônica que é sinônimo do R34 mundialmente.</p>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-number">04</span>
+                            <p>O motor RB26 foi propositalmente limitado a 2.6L para competir na Grupo A, onde o limite
+                                era 4.5L (com multiplicador de 1.7x para turbos).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="footer-note">
+                    <p>SKYLINE R34 GT-R: O último samurai. O ícone eterno da cultura JDM.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scanlines Effect -->
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
