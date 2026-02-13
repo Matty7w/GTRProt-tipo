@@ -316,58 +316,133 @@ window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
    IMAGE GALLERY LOGIC (DYNAMIC GENERATION)
    ==================================== */
 const galleryImages = [
+    // --- R35 (Modern & Nismo) ---
     { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Nismo_(R35),_2022,_front.jpg', title: 'R35 Nismo 2022', category: 'r35 stock' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg', title: 'R34 V-Spec II', category: 'r34 stock' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1996_Nissan_Skyline_GT-R_(R33)_2.6_Front.jpg', title: 'R33 GT-R 1996', category: 'r33 stock' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Sumo_Power_GT_20_Silverstone_FIA_GT1_2011.jpg', title: 'R35 GT1 Widebody', category: 'r35 bodykit' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(R34)_(6235066673).jpg', title: 'R34 Tuned Spec', category: 'r34 bodykit' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1996_Nissan_Skyline_GT-R_(R33)_2.6_Rear.jpg', title: 'R33 GT-R Rear', category: 'r33 stock' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Oschersleben_2009.jpg', title: 'R35 GT1 Carbon', category: 'r35 bodykit' },
-    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V_Spec_II_rear.jpg', title: 'R34 V-Spec Rear', category: 'r34 stock' },
-    { src: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Motul_Autech_GT-R_2011_Super_GT_Fuji_250km.jpg', title: 'R35 Super GT', category: 'r35 bodykit' },
-    { src: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Nissan_Skyline_R34_GT-R_Nür_001.jpg', title: 'R34 M-Spec Nür', category: 'r34 stock' },
-    { src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Skyline_GT-R_Autechversion_40thanniversary.jpg', title: 'R33 Autech 4-Door', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Nismo_GT3_2018.jpg', title: 'R35 GT3 Nismo 2018', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Sumo_Power_GT_20_Silverstone_FIA_GT1_2011.jpg', title: 'R35 GT1 Sumo Power', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Oschersleben_2009.jpg', title: 'R35 GT1 Carbon Test', category: 'r35 bodykit' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Motul_Autech_GT-R_2011_Super_GT_Fuji_250km.jpg', title: 'R35 Motul Autech GT500', category: 'r35 bodykit' },
     { src: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/2019_Nissan_GT-R_50th_Anniversary_Edition.jpg', title: 'R35 50th Anniversary', category: 'r35 stock' },
-    { src: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Nissan_Skyline_R34_GT-R_Nür_002.jpg', title: 'R34 Nür Rear', category: 'r34 stock' },
-    { src: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Nissan_GT-R_Nismo_GT3_2018.jpg', title: 'R35 GT3 Nismo', category: 'r35 bodykit' }
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Premium_Edition_(R35)_–_Frontansicht,_28._August_2012,_Düsseldorf.jpg', title: 'R35 Premium Edition', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_V_Spec_front_20090228.jpg', title: 'R35 V-Spec 2009', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Egoist.jpg', title: 'R35 Egoist Edition', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Nismo_(R35)_–_Frontansicht,_4._September_2014,_Düsseldorf.jpg', title: 'R35 Nismo 2014', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/2014_Nissan_GT-R_Black_Edition_Front.jpg', title: 'R35 Black Edition', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/2017_Nissan_GT-R_Premium_3.8_Front.jpg', title: 'R35 Premium 2017', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R50_by_Italdesign.jpg', title: 'Nissan GT-R50 Italdesign', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Goodwood_Festival_of_Speed_2019_(48243486391).jpg', title: 'R35 Nismo 2020 Track', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Concept_2020_Vision_Gran_Turismo_–_Frontansicht,_24._September_2015,_Frankfurt.jpg', title: 'GT-R 2020 Vision GT', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_LM_Nismo_Le_Mans_2015.jpg', title: 'GT-R LM Nismo Le Mans', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Nismo_GT3_2015.jpg', title: 'R35 GT3 2015', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Safety_Car.jpg', title: 'R35 Safety Car', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Prestige_2017.jpg', title: 'R35 Prestige 2017', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/FoS20162016_0624_132444AA_(27812903332).jpg', title: 'R35 Nismo Record Breaker', category: 'r35 stock' },
+
+    // --- R34 (Legend) ---
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg', title: 'R34 V-Spec II Stock', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V_Spec_II_rear.jpg', title: 'R34 V-Spec II Rear', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(R34)_(6235066673).jpg', title: 'R34 Modified Blue', category: 'r34 bodykit' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Nissan_Skyline_R34_GT-R_Nür_001.jpg', title: 'R34 M-Spec Nür Front', category: 'r34 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Nissan_Skyline_R34_GT-R_Nür_002.jpg', title: 'R34 M-Spec Nür Rear', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_GF-BNR34_White_(5).jpg', title: 'R34 GT-R White Profile', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_GF-BNR34_White_(6).jpg', title: 'R34 GT-R White Rear', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_GF-BNR34_White_(8).jpg', title: 'R34 GT-R White Detail', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(R34)_M-Spec_Nür.jpg', title: 'R34 M-Spec Nür Ginza', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V-Spec_N1.jpg', title: 'R34 V-Spec N1 (Rare)', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Z-tune_Silver.jpg', title: 'R34 Nismo Z-Tune', category: 'r34 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_V-Spec_II_Nür.jpg', title: 'R34 V-Spec II Nür Millenium Jade', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_V_spec_II_Nur_(BNR34)_front.jpg', title: 'R34 V-Spec II Nür Front', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_V_spec_II_Nur_(BNR34)_rear.jpg', title: 'R34 V-Spec II Nür Rear', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tuned_Nissan_Skyline_GT-R_R34.jpg', title: 'R34 Time Attack', category: 'r34 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_Police_Car_01.jpg', title: 'R34 Police Car Japan', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_V-Spec_Midnight_Purple_II.jpg', title: 'R34 Midnight Purple II', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_V-Spec_Midnight_Purple_III.jpg', title: 'R34 Midnight Purple III', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R34_GT-R_M-Spec.jpg', title: 'R34 M-Spec Silica Breath', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mine\'s_R34_Skyline_GT-R.jpg', title: 'R34 Mine\'s Tuned', category: 'r34 bodykit' },
+
+    // --- R33 (Classic) ---
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1996_Nissan_Skyline_GT-R_(R33)_2.6_Front.jpg', title: 'R33 GT-R 1996 Front', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1996_Nissan_Skyline_GT-R_(R33)_2.6_Rear.jpg', title: 'R33 GT-R 1996 Rear', category: 'r33 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Skyline_GT-R_Autechversion_40thanniversary.jpg', title: 'R33 Autech 4-Door', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_BCNR33_Autech_Version_40th_Anniversary_Rear.jpg', title: 'R33 Autech Rear', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R33_GT-R_LM_Limited.jpg', title: 'R33 LM Limited Champion Blue', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R33_V-Spec.jpg', title: 'R33 V-Spec', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nismo_400R_pre-production.jpg', title: 'R33 Nismo 400R (Rare)', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_LM_Road_Car_front-right_2016_Nissan_Global_Headquarters_Gallery.jpg', title: 'R33 GT-R LM Road Car', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_LM_Road_Car_rear-left_2016_Nissan_Global_Headquarters_Gallery.jpg', title: 'R33 LM Road Car Rear', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1995_Nissan_Skyline_GT-R.jpg', title: 'R33 GT-R 1995', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(BCNR33)_in_Tsukuba_Circuit.jpg', title: 'R33 Tsukuba Circuit', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/HKS_R33_GT-R_Drag_Car.jpg', title: 'R33 HKS Drag (Legend)', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R33_GT-R_V-Spec_Midnight_Purple.jpg', title: 'R33 V-Spec Midnight Purple', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Top_Secret_R33_GT-R.jpg', title: 'R33 Top Secret', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R33_Series_3.jpg', title: 'R33 Series 3', category: 'r33 stock' },
+
+    // --- R32 (Godzilla) & Heritage ---
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(BNR32)_front.jpg', title: 'R32 GT-R Godzilla', category: 'r33 stock' }, // Grouped for layout
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(BNR32)_rear.jpg', title: 'R32 GT-R Rear', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_V-Spec_II_(BNR32)_front.jpg', title: 'R32 V-Spec II', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_V-Spec_II_(BNR32)_rear.jpg', title: 'R32 V-Spec II Rear', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_2000_GT-R_KPGC10.jpg', title: 'Hakosuka GT-R (First Gen)', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_2000_GT-R_KPGC110.jpg', title: 'Kenmeri GT-R (Second Gen)', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_R32_GT-R_Nismo.jpg', title: 'R32 Nismo', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/HKS_R32_GT-R_Group_A.jpg', title: 'R32 HKS Group A', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Calsonic_Skyline_GT-R_(1990).jpg', title: 'Calsonic R32 Legend', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Reebok_Skyline_R32_GT-R_Group_A.jpg', title: 'Reebok R32 Group A', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/STP_Taisan_GT-R.jpg', title: 'STP Taisan R32', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Castrol_Mugen_GT-R.jpg', title: 'Castrol R32 (Rare)', category: 'r33 bodykit' },
+
+    // --- More Racing & Bodykits ---
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pennzoil_Nismo_GT-R_(1998).jpg', title: 'Pennzoil Nismo GT-R R33', category: 'r33 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Xanavi_Nismo_GT-R_(2003).jpg', title: 'Xanavi Nismo GT-R R34', category: 'r34 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Calsonic_Impul_GT-R_2008.jpg', title: 'R35 Calsonic Impul', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT500_2008_pre.jpg', title: 'R35 GT500 Test Car', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Blancpain_Endurance_Series_2012_-_Nürburgring_-_JRM_Nissan_GTR_GT3.jpg', title: 'R35 GT3 JRM', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/FIA_GT1_San_Luis_2011_Swiss_Nissan_1.jpg', title: 'R35 GT1 Swiss Racing', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Krumm_Nissan_GT-R_GT1_2010_Silverstone.jpg', title: 'R35 GT1 Michael Krumm', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sumo_Power_GT_Nissan_GT-R_GT1.jpg', title: 'Sumo Power GT1 Front', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Schubert.jpg', title: 'R35 GT1 Schubert', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/JR_Motorsports_Nissan_GT-R_GT1.jpg', title: 'JRM GT1', category: 'r35 bodykit' },
+
+    // --- Engines & Details ---
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Motors_RB26DETT_engine_001.jpg', title: 'RB26DETT R34 Engine', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/RB26DETT_R33_Engine.jpg', title: 'RB26DETT R33 Engine', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/VR38DETT.jpg', title: 'VR38DETT Hand-Built', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_R35_Interior.jpg', title: 'R35 Interior', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_MFD.jpg', title: 'R34 MFD Screen', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_R35_GT-R_Badge.jpg', title: 'GT-R Badge Detail', category: 'r35 stock' }
 ];
 
-function populateGallery(totalImages = 100) {
-    const galleryContainer = document.getElementById('gtr-gallery');
-    if (!galleryContainer) return;
+function populateGallery() {
+    // Unique check to ensure NO DUPLICATES based on src
+    const uniqueImages = [...new Map(galleryImages.map(item => [item.src, item])).values()];
 
-    galleryContainer.innerHTML = ''; // Clear container
+    // Safety: Populate ONLY unique images found
+    const container = document.getElementById('gtr-gallery');
+    if (!container) return;
+    container.innerHTML = '';
 
-    for (let i = 0; i < totalImages; i++) {
-        // Cycle through the curated list securely
-        const imgData = galleryImages[i % galleryImages.length];
-
-        // Generate minor variations in default title to make it feel less repetitive
-        const displayTitle = `${imgData.title} #${Math.floor(i / galleryImages.length) + 1}`;
-
+    uniqueImages.forEach((imgData, index) => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'gallery-item';
+        // Add minimal animation delay for staggered appearance
+        itemDiv.style.animationDelay = `${index * 0.05}s`;
         itemDiv.setAttribute('data-category', imgData.category);
 
-        // HTML Structure
         itemDiv.innerHTML = `
             <img src="${imgData.src}" 
                  data-full="${imgData.src}" 
                  loading="lazy" 
-                 alt="${displayTitle}">
+                 alt="${imgData.title}">
             <div class="gallery-overlay">
                 <div class="overlay-content">
                     <i class="fa-solid fa-expand"></i>
-                    <span class="image-title">${displayTitle}</span>
+                    <span class="image-title">${imgData.title}</span>
                 </div>
             </div>
         `;
+        container.appendChild(itemDiv);
+    });
 
-        // Add click event for standard functionality (opening custom lightbox if needed, but we'll use a delegate)
-        galleryContainer.appendChild(itemDiv);
-    }
-
-    // Re-initialize lightbox logic after population
     initLightbox();
 }
 
