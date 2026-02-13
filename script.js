@@ -312,8 +312,66 @@ window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
 /* ====================================
    IMAGE GALLERY LOGIC
    ==================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    const gallery = document.getElementById('gtr-gallery');
+/* ====================================
+   IMAGE GALLERY LOGIC (DYNAMIC GENERATION)
+   ==================================== */
+const galleryImages = [
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_Nismo_(R35),_2022,_front.jpg', title: 'R35 Nismo 2022', category: 'r35 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg', title: 'R34 V-Spec II', category: 'r34 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1996_Nissan_Skyline_GT-R_(R33)_2.6_Front.jpg', title: 'R33 GT-R 1996', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Sumo_Power_GT_20_Silverstone_FIA_GT1_2011.jpg', title: 'R35 GT1 Widebody', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_(R34)_(6235066673).jpg', title: 'R34 Tuned Spec', category: 'r34 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/1996_Nissan_Skyline_GT-R_(R33)_2.6_Rear.jpg', title: 'R33 GT-R Rear', category: 'r33 stock' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_GT-R_GT1_Oschersleben_2009.jpg', title: 'R35 GT1 Carbon', category: 'r35 bodykit' },
+    { src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_Skyline_GT-R_R34_V_Spec_II_rear.jpg', title: 'R34 V-Spec Rear', category: 'r34 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Motul_Autech_GT-R_2011_Super_GT_Fuji_250km.jpg', title: 'R35 Super GT', category: 'r35 bodykit' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Nissan_Skyline_R34_GT-R_Nür_001.jpg', title: 'R34 M-Spec Nür', category: 'r34 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Skyline_GT-R_Autechversion_40thanniversary.jpg', title: 'R33 Autech 4-Door', category: 'r33 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/2019_Nissan_GT-R_50th_Anniversary_Edition.jpg', title: 'R35 50th Anniversary', category: 'r35 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Nissan_Skyline_R34_GT-R_Nür_002.jpg', title: 'R34 Nür Rear', category: 'r34 stock' },
+    { src: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Nissan_GT-R_Nismo_GT3_2018.jpg', title: 'R35 GT3 Nismo', category: 'r35 bodykit' }
+];
+
+function populateGallery(totalImages = 100) {
+    const galleryContainer = document.getElementById('gtr-gallery');
+    if (!galleryContainer) return;
+
+    galleryContainer.innerHTML = ''; // Clear container
+
+    for (let i = 0; i < totalImages; i++) {
+        // Cycle through the curated list securely
+        const imgData = galleryImages[i % galleryImages.length];
+
+        // Generate minor variations in default title to make it feel less repetitive
+        const displayTitle = `${imgData.title} #${Math.floor(i / galleryImages.length) + 1}`;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'gallery-item';
+        itemDiv.setAttribute('data-category', imgData.category);
+
+        // HTML Structure
+        itemDiv.innerHTML = `
+            <img src="${imgData.src}" 
+                 data-full="${imgData.src}" 
+                 loading="lazy" 
+                 alt="${displayTitle}">
+            <div class="gallery-overlay">
+                <div class="overlay-content">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="image-title">${displayTitle}</span>
+                </div>
+            </div>
+        `;
+
+        // Add click event for standard functionality (opening custom lightbox if needed, but we'll use a delegate)
+        galleryContainer.appendChild(itemDiv);
+    }
+
+    // Re-initialize lightbox logic after population
+    initLightbox();
+}
+
+function initLightbox() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const filterBtns = document.querySelectorAll('.filter-btn');
     const lightbox = document.getElementById('lightbox-modal');
@@ -329,36 +387,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Filter Logic
     filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        // Clone button to remove old listeners if re-running
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
 
-            const filter = btn.getAttribute('data-filter');
+        newBtn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active')); // Note: re-query if needed or use parent delegation
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            newBtn.classList.add('active');
+
+            const filter = newBtn.getAttribute('data-filter');
 
             galleryItems.forEach(item => {
                 const category = item.getAttribute('data-category');
                 if (filter === 'all' || category.includes(filter)) {
-                    item.classList.remove('hidden');
+                    item.style.display = 'block'; // Better than class hidden for layout reflow
+                    setTimeout(() => item.classList.remove('hidden'), 10);
                 } else {
                     item.classList.add('hidden');
+                    setTimeout(() => item.style.display = 'none', 300); // Wait for fade out
                 }
             });
 
-            // Update current visible images for lightbox navigation
+            // Update visible images list
             currentImages = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
         });
     });
 
-    // Lightbox Logic
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
+    // Delegate Click for Gallery Items (Performance)
+    const galleryContainer = document.getElementById('gtr-gallery');
+    galleryContainer.addEventListener('click', (e) => {
+        const item = e.target.closest('.gallery-item');
+        if (item) {
+            // Update filtered list just in case
+            currentImages = Array.from(document.querySelectorAll('.gallery-item')).filter(i => i.style.display !== 'none');
             currentIndex = currentImages.indexOf(item);
             openLightbox(item);
-        });
+        }
     });
 
     function openLightbox(item) {
+        if (!item) return;
         const img = item.querySelector('img');
         const fullSrc = img.getAttribute('data-full');
         const title = item.querySelector('.image-title').textContent;
@@ -366,18 +436,19 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = fullSrc;
         lightboxTitle.textContent = title;
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scroll
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scroll
+        document.body.style.overflow = '';
         setTimeout(() => {
-            lightboxImg.src = ''; // Clear src after animation
+            lightboxImg.src = '';
         }, 300);
     }
 
     function navigateLightbox(direction) {
+        if (currentImages.length === 0) return;
         currentIndex += direction;
         if (currentIndex < 0) currentIndex = currentImages.length - 1;
         if (currentIndex >= currentImages.length) currentIndex = 0;
@@ -395,54 +466,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     }
 
-    // Event Listeners for Lightbox
-    lightboxClose.addEventListener('click', closeLightbox);
+    // Lightbox Controls
+    // Remove old listeners by cloning elements
+    const newClose = lightboxClose.cloneNode(true);
+    lightboxClose.parentNode.replaceChild(newClose, lightboxClose);
+    newClose.addEventListener('click', closeLightbox);
+
+    const newPrev = prevBtn.cloneNode(true);
+    prevBtn.parentNode.replaceChild(newPrev, prevBtn);
+    newPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+
+    const newNext = nextBtn.cloneNode(true);
+    nextBtn.parentNode.replaceChild(newNext, nextBtn);
+    newNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
 
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navigateLightbox(-1);
-    });
-
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navigateLightbox(1);
-    });
-
-    // Download Logic
-    lightboxDownload.addEventListener('click', async (e) => {
-        e.stopPropagation();
-        const imageUrl = lightboxImg.src;
-        const fileName = `GTR_${lightboxTitle.textContent.replace(/\s+/g, '_')}.jpg`;
-
-        try {
-            const response = await fetch(imageUrl);
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = fileName;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-        } catch (error) {
-            console.error('Erro ao baixar a imagem:', error);
-            // Fallback: open in new tab
-            window.open(imageUrl, '_blank');
-        }
-    });
-
-    // Keyboard Navigation
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
-
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') navigateLightbox(-1);
         if (e.key === 'ArrowRight') navigateLightbox(1);
     });
+}
+
+// Initialize on Load
+document.addEventListener('DOMContentLoaded', () => {
+    populateGallery(100); // Generate 100 images
 });
